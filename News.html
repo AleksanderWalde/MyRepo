@@ -17,12 +17,12 @@ col-sim si applica del breakpoint sm a salire. cioÃ¨ si cerca di metterli uno 
 	<body>
 	<div data-role="page">
 	<div data-role="header">
-		<h1>CHANGE RATES</h1>
+		<h1>News</h1>
 		<div data-role="navbar">
 </div><!-- /navbar -->
 	</div><!-- /header -->
 	<div data-role="content">
-		<a data-role="button" data-icon="star" onclick="getdata()">Get latest rates</a>	
+		<a data-role="button" data-icon="star" onclick="getdata()">Get latest news</a>	
 		<ul id="all" data-role="listview" data-inset="true" data-filter="false">
 		</ul>	
 	</div><!-- /content -->
@@ -36,25 +36,8 @@ col-sim si applica del breakpoint sm a salire. cioÃ¨ si cerca di metterli uno 
 			// get the most recent exchange rates via the "latest" endpoint:
 			$.ajax({
     				url: 'https://newsapi.org/v2/top-headlines?sources=al-jazeera-english&apiKey=access_key,   
-    				dataType: 'jsonp',
-    				success: function(json) {
-				rates = json['rates'];
-				//alert(rates);
-				for (var k in rates) {
-					$( "#all" ).append( "<li>"+k+"  "+rates[k]+"</li>" );
-					//  string1 += object1[property1];
-				}
-				$("#all").listview('refresh');
-			        // exchange rata data is stored in json.rates
-        			//alert(json.rates.GBP);
-        
-        			// base currency is stored in json.base
-        			//alert(json.base);
-        
-        			// timestamp can be accessed in json.timestamp
-        			//alert(json.timestamp);
-        
-  		  }
+    				dataType: 'json',
+
 		});
 		}
 	</script>
